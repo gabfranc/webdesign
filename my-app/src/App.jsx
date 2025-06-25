@@ -23,11 +23,13 @@ function App() {
         <DotGrid followCursor={true} />
       </div>
 
-      {/* 🔘 Gooey Navigation */}
-      <div className="nav-container">
-        <GooeyNav items={navItems} onNavClick={handleNavClick} logo={<img src={logo} alt="Logo" className="nav-logo" />} />
-      </div>
-
+    <div className="navbar">
+      <GooeyNav
+        items={navItems}
+        onNavClick={handleNavClick}
+        logo={<img src={logo} alt="Logo" className="nav-logo" />}
+      />
+    </div>
 
       {/* 💬 Main Content */}
       <main className="main-content">

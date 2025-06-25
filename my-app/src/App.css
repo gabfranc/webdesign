@@ -16,6 +16,11 @@
   padding: 4rem 2rem;
 }
 
+.navbar {
+  margin-top: 4vh;
+  margin-left: 4vh;
+}
+
 .nav-container {
   margin-top: 20px;
   margin-left: 20px;
@@ -23,7 +28,7 @@
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 0.2rem 0;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
@@ -47,6 +52,43 @@
   padding-left: 2rem;
 }
 
+.hero-section {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60vh;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.hero-text {
+  color: white;
+  text-align: left;
+  padding-right: 2rem;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-overlay button {
+  padding: 0.75rem 1.5rem;
+  background: #5227FF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .dotgrid-background {
   position: absolute;
   top: 0;
@@ -57,16 +99,36 @@
   overflow: hidden;
 }
 
+.spotlight-card {
+  display: flex;
+  gap: 5px 20px;
+}
+
+.spotlight-card img {
+  margin: 12vh;
+  padding: 2vh 2vh 2vh 2vh;
+  justify-items: center;
+  border-radius: 12vh;
+  height: 65vh;
+  width: 85vh;
+}
+
 .spotlight-align {
   display: grid;
-  justify-content: center;
+  grid-template-columns: repeat(1, 1fr);
+  /* 2 columns */
+  grid-template-rows: repeat(1, auto);
+  /* 2 rows */
+  justify-items: center;
+  align-items: start;
   text-align: left;
   line-height: 10vh;
-  margin: 4vh;
-  gap: 50px 100px;
+  margin: 4px;
+  padding: 2px;
+  gap: 5px 20px;
   color: #aa4465;
 }
 
 .spotlight-align .included {
-  margin: 5vh;
+  margin: 5px;
 }

@@ -1,19 +1,91 @@
 import React from 'react';
 import SpotlightCard from '../components/SpotlightCard';
+import FlyingPosters from '../components/Posters/FlyingPosters';
+import ProfileCard from '../components/ProfileCards/ProfileCards';
+import designLogo from '../assets/designlogo.png';
+import coding from "../assets/coding.jpg";
+import uxdesign from "../assets/uxdesign.jpg";
+import webdesign from "../assets/webdesign.jpg";
+import quickfoods from "../assets/quickfoods.png";
+import computer from "../assets/computer.jpg";
+import avatar from "../assets/avatar.png";
+import magnify from "../assets/magnify.jpg";
+
+const posterImages = [
+  designLogo,
+  coding,
+  uxdesign,
+  webdesign,
+  quickfoods,
+  computer,
+];
 
 const HomePage = () => {
   return (
     <main className="main-content" style={{ background: 'none', padding: '2rem' }}>
-      <section className="section">
-        <h1>Welcome to My Website</h1>
+      {/* Hero Section */}
+      <section
+        className="hero-section"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '60vh',
+          marginBottom: '3rem',
+          padding: '0 4rem',
+          backgroundColor: '#FFA69E',
+          borderRadius: '2rem',
+          color: 'white',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div style={{ flex: 1, height: '100%' }}>
+          <FlyingPosters items={posterImages} className="hero-posters" />
+        </div>
 
-        <div className="spotlight-align">
-          <SpotlightCard>
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            textAlign: 'left',
+            paddingLeft: '2rem',
+          }}
+        >
+          <h1 style={{ fontSize: '2.5rem', margin: 0 }}>
+            Designs That Speak for Your Brand
+          </h1>
+          <button
+            style={{
+              marginTop: '1rem',
+              padding: '0.75rem 1.5rem',
+              background: '#5227FF',
+              border: 'none',
+              borderRadius: '8px',
+              color: 'white',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+            }}
+          >
+            See My Work
+          </button>
+        </div>
+      </section>
+
+      {/* Spotlight Section and Profile Card */}
+      <div className="splitdev">
+        <section className="section spotlight-align">
+          {/* DISCOVERY Card */}
+          <SpotlightCard className="spotlight-card">
+            <div className="HeadCard">
             <h2><i>DISCOVERY</i></h2>
             <p>
-              We start by getting to know you—your goals, audience, and vision. 
-              Through a discovery call or questionnaire, we gather everything 
-              we need to create a strategy that aligns with your brand and business needs.
+              We start by getting to know you—your goals, audience, and vision.
+              Through a discovery call or questionnaire, we gather everything we need
+              to create a strategy that aligns with your brand and business needs.
             </p>
             <div className="included">
               <h3><strong><i>What's Included?</i></strong></h3>
@@ -24,55 +96,33 @@ const HomePage = () => {
                 <li>FEATURE WISHLIST</li>
               </ul>
             </div>
-          </SpotlightCard>
-          <SpotlightCard>
-            <h2><i>DESIGN</i></h2>
-            <p>
-            Once the vision is clear, we move into designing your site. From wireframes to polished mockups, every pixel is thoughtfully placed to create a beautiful and intuitive experience that reflects your brand.
-            </p>
-            <div className="included">
-              <h3><strong><i>What's Included?</i></strong></h3>
-              <ul>
-                <li>UX/UI DESIGN</li>
-                <li>COLOUR PALETTE</li>
-                <li>TYPOGRAPHY</li>
-                <li>IMAGERY</li>
-                <li>HOMEPAGE & KEY PAGE MOCKUPS</li>
-              </ul>
+            </div>
+            <div className="imgcard">
+              <img
+                src={magnify}
+                alt="Discovery visual"
+                style={{ width: '100%', borderRadius: '90px', marginTop: '1rem' }}
+              />
             </div>
           </SpotlightCard>
-          <SpotlightCard>
-            <h2><i>DEVELOPMENT</i></h2>
-            <p>
-            We bring your design to life using modern, responsive, and accessible web development practices. Your site will look and function beautifully on all devices.
-            </p>
-            <div className="included">
-              <h3><strong><i>What's Included?</i></strong></h3>
-              <ul>
-                <li>WEBFLOW/WIX/WORDPRESS OR CUSTOM CODED DEVELOPMENT</li>
-                <li>MOBILE OPTIMIZATION</li>
-                <li>ANIMATIONS</li>
-                <li>ON-PAGE SEO</li>
-              </ul>
-            </div>
-          </SpotlightCard>
-          <SpotlightCard>
-            <h2><i>LAUNCH & SUPPORT</i></h2>
-            <p>
-            Once everything is tested and approved, it's launch time! We guide you through the final hand-off, provide tutorials, and offer ongoing support if needed.
-            </p>
-            <div className="included">
-              <h3><strong><i>What's Included?</i></strong></h3>
-              <ul>
-                <li>LAUNCH CHECKLIST</li>
-                <li>DOMAIN CONNECTION</li>
-                <li>BASIC TRAINING</li>
-                <li>POST-LAUNCH SUPPORT</li>
-              </ul>
-            </div>
-          </SpotlightCard>
+        </section>
+
+        {/* Profile Card */}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          <ProfileCard
+            avatarUrl={avatar}
+            miniAvatarUrl={avatar}
+            iconUrl={designLogo}
+            grainUrl={webdesign}
+            name="Gabrielle Franco"
+            title="Web Developer"
+            handle="gabby.designstudio"
+            status="Online"
+            contactText="Let's Connect"
+            onContactClick={() => alert("Contact clicked!")}
+          />
         </div>
-      </section>
+      </div>
     </main>
   );
 };
