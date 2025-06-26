@@ -1,9 +1,22 @@
-/* App.css */
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 .app-container {
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  /* changed from 100vw */
   overflow-x: hidden;
   background-color: #FFE8E1;
   color: white;
@@ -53,13 +66,15 @@
 }
 
 .hero-section {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60vh;
   margin-bottom: 3rem;
   gap: 2rem;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .hero-text {
@@ -110,12 +125,8 @@
 
 .spotlight-align {
   display: flex;
-  grid-template-columns: repeat(2, 1fr);
-  /* 2 columns */
-  grid-template-rows: repeat(1, auto);
-  /* 2 rows */
-  justify-items: center;
-  align-items: start;
+  flex-wrap: wrap;
+  justify-content: center;
   text-align: left;
   line-height: 10vh;
   margin: 14px;
@@ -128,11 +139,24 @@
   margin: 3px;
 }
 
-.offerservices h2 {
+.offerservices h2,
+.worktogether h2,
+.offerservices h3,
+.worktogether h3 {
   color: #aa4465;
   font-weight: 900;
   font-style: italic;
 }
+
+.offerservices p,
+.worktogether p,
+.offerservices ul,
+.worktogether ul {
+  color: #903552;
+  font-weight: 900;
+  font-style: italic;
+}
+
 
 .AboutMe h2 {
   color: #aa4465;

@@ -141,15 +141,34 @@ If you’re looking for a reliable creative partner who values clarity, consiste
             handle="gabby.designstudio"
             status="Online"
             contactText="Let's Connect"
-            onContactClick={() => alert("Contact clicked!")}
+            onContactClick={() => window.open('https://www.instagram.com/gabby.designstudio/', '_blank')}
           />
         </div>
         </section>
       </section>
-      <section className="offerservices" style={{ flex: 0.7, minWidth: '30vh', marginTop: '12vh' }}>
-  <h2>What We Offer?</h2>
+      <section
+  className="offerservices"
+  style={{
+    marginTop: '12vh',
+    padding: '0 2rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    maxWidth: '1200px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  }}
+>
+  <h2 style={{ marginBottom: '2rem' }}>What We Offer?</h2>
 
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '4vh' }}>
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)', // force 3 items per row
+      gap: '4vh 2vw',
+      width: '100%',
+    }}
+  >
     <SpotlightCard>
       <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
         <h2><i>WEB DESIGN</i></h2>
@@ -172,6 +191,97 @@ If you’re looking for a reliable creative partner who values clarity, consiste
     </SpotlightCard>
   </div>
 </section>
+
+<section
+  className="worktogether"
+  style={{
+    marginTop: '16vh',
+    padding: '0 2rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    maxWidth: '1200px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  }}
+>
+  <h2 style={{ marginBottom: '2rem' }}>How We'll Work Together?</h2>
+
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: '4vh 2vw',
+      width: '100%',
+    }}
+  >
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>DISCOVERY</i></h2>
+        <p>We start with a consultation to understand your business, brand voice, audience, and project goals.</p>
+        <h3>Includes:</h3>
+        <ul>
+          <li>Initial call or questionnaire</li>
+          <li>Review of existing assets (if any)</li>
+          <li>Defining your audience & objectives</li>
+        </ul>
+      </div>
+    </SpotlightCard>
+
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>STRATEGY & PLANNING</i></h2>
+        <p>A roadmap tailored to your goals with moodboards, timelines, and deliverables.</p>
+        <h3>Includes:</h3>
+        <ul>
+          <li>Moodboards or wireframes</li>
+          <li>Tool & platform selection</li>
+          <li>Concept approval</li>
+        </ul>
+      </div>
+    </SpotlightCard>
+
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>DESIGN & CREATE</i></h2>
+        <p>Bringing your strategy to life through clean, impactful design and content.</p>
+        <h3>Includes:</h3>
+        <ul>
+          <li>Custom design or content</li>
+          <li>2 rounds of revisions</li>
+          <li>Milestone feedback</li>
+        </ul>
+      </div>
+    </SpotlightCard>
+
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>LAUNCH & DELIVER</i></h2>
+        <p>Final delivery, optimization, and testing across platforms before publishing.</p>
+        <h3>Includes:</h3>
+        <ul>
+          <li>Final files or site handoff</li>
+          <li>Platform formatting</li>
+          <li>Performance-optimized assets</li>
+        </ul>
+      </div>
+    </SpotlightCard>
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>ONGOING SUPPORT</i></h2>
+        <p>Need continued help with updates, content planning, or design tweaks? I offer ongoing support packages to help you stay consistent and up-to-date long after the launch.</p>
+        <h3>Includes:</h3>
+        <ul>
+          <li>MONTHLY RETAINERS(design or content)</li>
+          <li>ANALYTICS REVIEW & OPTIMIZATION</li>
+          <li>PRIORITY SUPPORT</li>
+        </ul>
+      </div>
+    </SpotlightCard>
+  </div>
+</section>
+
+
       </div>
     </main>
   );
