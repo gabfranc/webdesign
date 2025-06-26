@@ -64,19 +64,20 @@ const HomePage = () => {
           </h1>
           <h3 style={{ fontSize: '22.5px', margin: '1rem' }}>Web Design, Graphic & Digital Content that Captivate and Convert</h3>
           <button
-            style={{
-              padding: '0.75rem 1.5rem',
-              background: '#5227FF',
-              border: 'none',
-              borderRadius: '8px',
-              color: 'white',
-              fontWeight: 'bold',
-              cursor: 'pointer',
-              margin: '1rem'
-            }}
-          >
-            See My Work
-          </button>
+              style={{
+                padding: '0.75rem 1.5rem',
+                background: '#5227FF',
+                border: 'none',
+                borderRadius: '8px',
+                color: 'white',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                margin: '1rem'
+              }}
+              onClick={() => window.location.href = '../pages/Projects.jsx'} // Or use a routing library's navigation
+            >
+              See My Work
+            </button>
         </div>
       </section>
 

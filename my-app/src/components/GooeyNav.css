@@ -20,23 +20,26 @@
   margin: 0;
   position: relative;
   z-index: 3;
-  color: #b1a4e8;
+  color: rgb(61, 44, 46);
+  /* Changed to a darker, more readable color */
   text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
 }
 
 .gooey-nav-container nav ul li {
   padding: 0.6em 1em;
   border-radius: 100vw;
-  font-weight: bolder;
+  font-weight: bold;
+  /* Changed from bolder to bold for consistent readability */
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 0.5px 1.5px transparent;
-  color: #b1a4e8;
+  color: rgb(61, 44, 46);
+  /* Changed to a darker, more readable color for individual list items */
 }
 
 .gooey-nav-container nav ul li:focus-within:has(:focus-visible) {
-  box-shadow: 0 0 0.5px 1.5px #b1a4e8;
+  box-shadow: 0 0 0.5px 1.5px rgb(140, 63, 101);
 }
 
 .gooey-nav-container nav ul li::after {
@@ -52,13 +55,16 @@
 }
 
 .gooey-nav-container nav ul li.active {
-  color: black;
+  color: rgb(140, 63, 101);
+  /* Keep the original color for active state to contrast with the pill background */
   text-shadow: none;
+  font-weight: bold;
 }
 
 .gooey-nav-container nav ul li.active::after {
   opacity: 1;
   transform: scale(1);
+  font-weight: bold;
 }
 
 .gooey-nav-container .effect {
@@ -75,12 +81,13 @@
 }
 
 .gooey-nav-container .effect.text {
-  color: #b1a4e8;
+  color: #903552;
   transition: color 0.3s ease;
 }
 
 .gooey-nav-container .effect.text.active {
-  color: black;
+  color: #903552;
+  font-weight: 800;
 }
 
 .gooey-nav-container .effect.filter {

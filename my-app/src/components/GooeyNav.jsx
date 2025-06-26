@@ -1,8 +1,11 @@
 import { useRef, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./GooeyNav.css";
 
 const GooeyNav = ({
   items,
+  onNavClick,
+  logo,
   animationTime = 600,
   particleCount = 15,
   particleDistances = [90, 10],
@@ -15,26 +18,22 @@ const GooeyNav = ({
   const navRef = useRef(null);
   const filterRef = useRef(null);
   const textRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const initialIndex = items.findIndex((item) => item.path === currentPath);
+  const [activeIndex, setActiveIndex] = useState(
+    initialIndex >= 0 ? initialIndex : initialActiveIndex
+  );
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
 
-  const getXY = (
-    distance,
-    pointIndex,
-    totalPoints
-  ) => {
-    const angle =
-      ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
+  const getXY = (distance, pointIndex, totalPoints) => {
+    const angle = ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
     return [distance * Math.cos(angle), distance * Math.sin(angle)];
   };
 
-  const createParticle = (
-    i,
-    t,
-    d,
-    r
-  ) => {
+  const createParticle = (i, t, d, r) => {
     let rotate = noise(r / 10);
     return {
       start: getXY(d[0], particleCount - i, particleCount),
@@ -76,11 +75,12 @@ const GooeyNav = ({
         requestAnimationFrame(() => {
           element.classList.add("active");
         });
+
         setTimeout(() => {
           try {
             element.removeChild(particle);
-          } catch {
-            // Do nothing
+          } catch (error) {
+            console.error("Failed to remove particle:", error);
           }
         }, t);
       }, 30);
@@ -103,7 +103,7 @@ const GooeyNav = ({
     textRef.current.innerText = element.innerText;
   };
 
-  const handleClick = (e, index) => {
+  const handleClick = async (e, index) => {
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
 
@@ -117,7 +117,6 @@ const GooeyNav = ({
 
     if (textRef.current) {
       textRef.current.classList.remove("active");
-
       void textRef.current.offsetWidth;
       textRef.current.classList.add("active");
     }
@@ -125,6 +124,12 @@ const GooeyNav = ({
     if (filterRef.current) {
       makeParticles(filterRef.current);
     }
+
+    setTimeout(() => {
+      if (onNavClick && items[index]) {
+        onNavClick(items[index]);
+      }
+    }, animationTime);
   };
 
   const handleKeyDown = (e, index) => {
@@ -132,28 +137,21 @@ const GooeyNav = ({
       e.preventDefault();
       const liEl = e.currentTarget.parentElement;
       if (liEl) {
-        handleClick(
-          { currentTarget: liEl },
-          index
-        );
+        handleClick({ currentTarget: liEl }, index);
       }
     }
   };
 
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
-    const activeLi = navRef.current.querySelectorAll("li")[
-      activeIndex
-    ];
+    const activeLi = navRef.current.querySelectorAll("li")[activeIndex];
     if (activeLi) {
       updateEffectPosition(activeLi);
       textRef.current?.classList.add("active");
     }
 
     const resizeObserver = new ResizeObserver(() => {
-      const currentActiveLi = navRef.current?.querySelectorAll("li")[
-        activeIndex
-      ];
+      const currentActiveLi = navRef.current?.querySelectorAll("li")[activeIndex];
       if (currentActiveLi) {
         updateEffectPosition(currentActiveLi);
       }
@@ -163,9 +161,30 @@ const GooeyNav = ({
     return () => resizeObserver.disconnect();
   }, [activeIndex]);
 
+  // ✅ Sync activeIndex when route changes
+  useEffect(() => {
+    const index = items.findIndex((item) => item.path === location.pathname);
+    if (index >= 0 && index !== activeIndex) {
+      setActiveIndex(index);
+    }
+  }, [location.pathname, items, activeIndex]);
+
   return (
     <div className="gooey-nav-container" ref={containerRef}>
-      <nav>
+      <nav className="gooey-navbar">
+        {logo && (
+          <div
+            className="nav-logo-container"
+            onClick={() => onNavClick({ path: "/" })}
+            role="button"
+            tabIndex="0"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") onNavClick({ path: "/" });
+            }}
+          >
+            {logo}
+          </div>
+        )}
         <ul ref={navRef}>
           {items.map((item, index) => (
             <li
@@ -173,7 +192,7 @@ const GooeyNav = ({
               className={activeIndex === index ? "active" : ""}
               onClick={(e) => handleClick(e, index)}
             >
-              <a href={item.href} onKeyDown={(e) => handleKeyDown(e, index)}>
+              <a tabIndex="0" onKeyDown={(e) => handleKeyDown(e, index)}>
                 {item.label}
               </a>
             </li>
