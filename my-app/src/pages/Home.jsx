@@ -1,15 +1,15 @@
 import React from 'react';
-import SpotlightCard from '../components/SpotlightCard';
 import FlyingPosters from '../components/Posters/FlyingPosters';
+import SpotlightCard from '../components/SpotlightCard';
 import ProfileCard from '../components/ProfileCards/ProfileCards';
+
 import designLogo from '../assets/designlogo.png';
-import coding from "../assets/coding.jpg";
-import uxdesign from "../assets/uxdesign.jpg";
-import webdesign from "../assets/webdesign.jpg";
-import quickfoods from "../assets/quickfoods.png";
-import computer from "../assets/computer.jpg";
-import avatar from "../assets/avatar.png";
-import magnify from "../assets/magnify.jpg";
+import coding from '../assets/coding.jpg';
+import uxdesign from '../assets/uxdesign.jpg';
+import webdesign from '../assets/webdesign.jpg';
+import quickfoods from '../assets/quickfoods.png';
+import computer from '../assets/computer.jpg';
+import avatar from '../assets/avatar.png';
 
 const posterImages = [
   designLogo,
@@ -22,45 +22,49 @@ const posterImages = [
 
 const HomePage = () => {
   return (
-    <main className="main-content" style={{ background: 'none', padding: '2rem' }}>
-      {/* Hero Section */}
+    <main style={{ background: 'none', padding: '2rem', fontFamily: 'sans-serif' }}>
+
+      {/* Hero Section with Flying Posters */}
       <section
-        className="hero-section"
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '60vh',
-          marginBottom: '3rem',
-          padding: '0 4rem',
+          minHeight: '60vh',
+          padding: '2rem',
           backgroundColor: '#FFA69E',
           borderRadius: '2rem',
           color: 'white',
           position: 'relative',
           overflow: 'hidden',
+          marginBottom: '3rem',
         }}
       >
-        <div style={{ flex: 1, height: '100%' }}>
-          <FlyingPosters items={posterImages} className="hero-posters" />
+        <div style={{ flex: 1, minWidth: '300px', height: '400px' }}>
+          <FlyingPosters
+            items={posterImages}
+            className="posters-section"
+          />
         </div>
 
         <div
           style={{
             flex: 1,
+            minWidth: '300px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            textAlign: 'left',
-            paddingLeft: '2rem',
+            padding: '2rem',
           }}
         >
-          <h1 style={{ fontSize: '2.5rem', margin: 0 }}>
-            Designs That Speak for Your Brand
+          <h1 style={{ fontSize: '2.5rem', margin: '1rem' }}>
+            Creative Solutions for Brands Ready to Grow
           </h1>
+          <h3 style={{ fontSize: '22.5px', margin: '1rem' }}>Web Design, Graphic & Digital Content that Captivate and Convert</h3>
           <button
             style={{
-              marginTop: '1rem',
               padding: '0.75rem 1.5rem',
               background: '#5227FF',
               border: 'none',
@@ -68,6 +72,7 @@ const HomePage = () => {
               color: 'white',
               fontWeight: 'bold',
               cursor: 'pointer',
+              margin: '1rem'
             }}
           >
             See My Work
@@ -75,40 +80,57 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Spotlight Section and Profile Card */}
-      <div className="splitdev">
-        <section className="section spotlight-align">
-          {/* DISCOVERY Card */}
-          <SpotlightCard className="spotlight-card">
-            <div className="HeadCard">
-            <h2><i>DISCOVERY</i></h2>
-            <p>
-              We start by getting to know you—your goals, audience, and vision.
-              Through a discovery call or questionnaire, we gather everything we need
-              to create a strategy that aligns with your brand and business needs.
-            </p>
-            <div className="included">
-              <h3><strong><i>What's Included?</i></strong></h3>
-              <ul>
-                <li>BRAND RESEARCH</li>
-                <li>COMPETITOR ANALYSIS</li>
-                <li>DESIGN INSPIRATION</li>
-                <li>FEATURE WISHLIST</li>
-              </ul>
-            </div>
-            </div>
-            <div className="imgcard">
-              <img
-                src={magnify}
-                alt="Discovery visual"
-                style={{ width: '100%', borderRadius: '90px', marginTop: '1rem' }}
-              />
-            </div>
-          </SpotlightCard>
-        </section>
+      {/* Spotlight + Profile Section */}
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '2rem',
+          justifyContent: 'space-between',
+        }}
+      >
 
-        {/* Profile Card */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+<section className="AboutMe"
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          minHeight: '60vh',
+          padding: '2rem',
+          backgroundColor: '#FFE8E2',
+          borderRadius: '2rem',
+          color: '#aa4465',
+          position: 'relative',
+          overflow: 'hidden',
+          margin: '2rem',
+        }}
+      >
+        <div
+          style={{
+            flex: 1,
+            minWidth: '200px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            padding: '3rem',
+          }}
+        >
+          <h1 style={{ color: 'pink',fontSize: '2.5rem', margin: '1rem' }}>
+            About Me
+          </h1>
+
+          <p>My name is Gabby, and I specialize in delivering tailored creative solutions through <strong><i>web design, graphic design, and digital content strategy.</i></strong>
+
+With a strong foundation in both design and digital marketing, I help businesses build cohesive online identities that not only look professional but also drive engagement and results. From developing clean, responsive websites to designing brand assets and crafting content that aligns with marketing goals, I bring a strategic and detail-oriented approach to every project.
+
+I’ve had the opportunity to work with clients across a range of industries, helping them elevate their visual presence and communicate their message effectively in today’s fast-paced digital landscape.
+
+If you’re looking for a reliable creative partner who values clarity, consistency, and collaboration—I’d be glad to connect.</p>
+        </div>
+        <section style={{flex: 1, marginTop:'12vh'}}>
+        <div className="ProfileCard"style={{ flex: 1, minWidth: '300px', display: 'flex', justifyContent: 'center', marginTop: '12vh;' }}>
           <ProfileCard
             avatarUrl={avatar}
             miniAvatarUrl={avatar}
@@ -122,6 +144,34 @@ const HomePage = () => {
             onContactClick={() => alert("Contact clicked!")}
           />
         </div>
+        </section>
+      </section>
+      <section className="offerservices" style={{ flex: 0.7, minWidth: '30vh', marginTop: '12vh' }}>
+  <h2>What We Offer?</h2>
+
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '4vh' }}>
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>WEB DESIGN</i></h2>
+        <p>Custom websites that look great, load fast, and work on any device.</p>
+      </div>
+    </SpotlightCard>
+
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>Graphic Design</i></h2>
+        <p>Logos, branding, social media graphics, and anything visual.</p>
+      </div>
+    </SpotlightCard>
+
+    <SpotlightCard>
+      <div className="services" style={{ margin: '2vh', padding: '2vh' }}>
+        <h2><i>Content & Digital Marketing</i></h2>
+        <p>Reels, blogs, email campaigns & strategy that drives engagement.</p>
+      </div>
+    </SpotlightCard>
+  </div>
+</section>
       </div>
     </main>
   );

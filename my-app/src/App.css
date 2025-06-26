@@ -100,22 +100,17 @@
 }
 
 .spotlight-card {
+  margin-top: 12px;
   display: flex;
-  gap: 5px 20px;
-}
-
-.spotlight-card img {
-  margin: 12vh;
-  padding: 2vh 2vh 2vh 2vh;
-  justify-items: center;
-  border-radius: 12vh;
-  height: 65vh;
-  width: 85vh;
+  gap: 15px 20px;
+  padding: 10vh;
+  width: 25rem;
+  margin-left: 12px;
 }
 
 .spotlight-align {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
   /* 2 columns */
   grid-template-rows: repeat(1, auto);
   /* 2 rows */
@@ -123,12 +118,30 @@
   align-items: start;
   text-align: left;
   line-height: 10vh;
-  margin: 4px;
-  padding: 2px;
-  gap: 5px 20px;
+  margin: 14px;
+  padding: 12px;
+  gap: 15px 20px;
   color: #aa4465;
 }
 
 .spotlight-align .included {
-  margin: 5px;
+  margin: 3px;
+}
+
+.offerservices h2 {
+  color: #aa4465;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.AboutMe h2 {
+  color: #aa4465;
+}
+
+.ProfileCard {
+  margin: 12vh;
+}
+
+.services {
+  margin-top: 12vh;
 }
