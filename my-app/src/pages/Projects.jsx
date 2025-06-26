@@ -2,7 +2,7 @@ import React from 'react';
 import SpotlightCard from '../components/SpotlightCard';
 import sample1 from '../assets/quickfoods.png';
 import sample2 from '../assets/onyx.png';
-import sample3 from '../assets/Tech Up!.png';
+import sample3 from '../assets/techup.png';
 import sample4 from '../assets/sigdev.png';
 import sample5 from '../assets/tictactoe.png'
 
