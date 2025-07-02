@@ -19,7 +19,9 @@ const ContactPage = () => {
             <li><strong>Email:</strong> gab.ann.franco@gmail.com</li>
             <li><strong>Instagram:</strong> <a href="https://instagram.com/gabby.designstudio" target="_blank" rel="noopener noreferrer">@gabby.designstudio</a></li>
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gabriellefranco/" target="_blank" rel="noopener noreferrer">Gabrielle Franco</a></li>
-          </ul>
+            <li><a href="https://form.jotform.com/242768140142048">Need a Website?</a></li>
+            <li><a href="https://form.jotform.com/251816674779070">Need a Graphic Design?</a></li>
+          </ul>  
         </section>
 
         {/* Profile Card */}
